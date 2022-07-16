@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="todoWrap">
+        <h2>To Do List</h2>
+        <input type="text" placeholder="Add new task" class="main-input">
+        <button type="button" id="addTodoTask">Add</button>
+        <div id="taskLists"></div>
+    </div>
+    <script type="text/javascript">
+        $('#addTodoTask').click(function () {
+            if( $('#todoWrap input').val().length==0){
+                alert('please add a task')
+            } else{
+                let inputValue = $('#todoWrap input').val();
+            $('#taskLists').append(`<p>` + inputValue + `<span class="delItems">Delete</span</p>`
+            );
+
+            $('#todoWrap input').val('')
+
+            $('.delItems').click(function(){
+                $(this).parent().remove()
+            });
+            $('.delItems').css({"background-color": "red", "color": "white", "padding":"5px", "margin": "10px", "border-radius": "4px","line-height": "40px"})
+            }  
+            
+        })
+    </script>
+</body>
+
+</html>
